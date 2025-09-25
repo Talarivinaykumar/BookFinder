@@ -30,4 +30,4 @@ export default function BookCard({ book, onToggleFavorite, isFavorite }) {
       </button>
     </div>
   );
-}
+};

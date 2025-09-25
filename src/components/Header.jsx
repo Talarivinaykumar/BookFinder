@@ -10,4 +10,4 @@ export default function Header({ darkMode, toggleDarkMode }) {
       </button>
     </header>
   );
-}
+};

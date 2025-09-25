@@ -15,4 +15,4 @@ export default function BookGrid({ books, favorites, onToggleFavorite }) {
       ))}
     </div>
   );
-}
+};

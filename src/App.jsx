@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Header from "./Header";
-import SearchForm from "./SearchForm";
-import BookGrid from "./BookGrid";
+import Header from "./components/Header";
+import SearchForm from "./components/SearchForm";
+import BookGrid from "./components/BookGrid";
 
 function App() {
   const [title, setTitle] = useState("");
