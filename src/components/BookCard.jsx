@@ -1,33 +1,28 @@
-export default function BookCard({ book, onToggleFavorite, isFavorite }) {
+const BookCard = ({ book }) => {
+  const coverUrl = book.cover_i
+    ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
+    : "/default.jpeg";
+
   return (
-    <div className="border rounded p-3 shadow bg-white dark:bg-gray-800 dark:border-gray-700">
-      {book.cover_i ? (
-        <img
-          src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
-          alt={book.title}
-          className="w-full h-48 object-cover mb-2 rounded"
-        />
-      ) : (
-        <div className="w-full h-48 bg-gray-200 dark:bg-gray-700 flex items-center justify-center mb-2 rounded">
-          No Cover
-        </div>
-      )}
-      <h2 className="font-bold">{book.title}</h2>
-      <p className="text-sm">
-        Author: {book.author_name ? book.author_name.join(", ") : "N/A"}
+    <div className="bg-white rounded-lg shadow-md p-4 flex flex-col h-80 w-full">
+      <img
+        src={coverUrl}
+        alt={book.title}
+        className="w-full h-40 object-cover mb-3 rounded"
+      />
+
+      <h2 className="font-bold text-lg line-clamp-2">{book.title}</h2>
+
+      <p className="text-gray-600 text-sm truncate">
+        {book.author_name?.join(", ") || "Unknown Author"}
       </p>
-      <p className="text-sm">
-        First Published: {book.first_publish_year || "N/A"}
-      </p>
-      <p className="text-sm">Language: {book.language?.join(", ") || "N/A"}</p>
-      <button
-        onClick={() => onToggleFavorite(book)}
-        className={`mt-2 px-2 py-1 rounded text-sm w-full ${
-          isFavorite ? "bg-red-500 text-white" : "bg-gray-200 dark:bg-gray-700"
-        }`}
-      >
-        {isFavorite ? "★ Favorited" : "☆ Add to Favorites"}
-      </button>
+      <div className="mt-auto">
+        <p className="text-gray-500 text-xs">
+          Published: {book.first_publish_year || "N/A"}
+        </p>
+      </div>
     </div>
   );
 };
+
+export default BookCard;
